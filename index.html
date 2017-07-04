@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <script src="js/fontsizeset.js"></script>
+    <link rel="stylesheet" href="CSS/swiper.min.css">
+    <link rel="stylesheet" href="CSS/css2.css">
+    <link rel="stylesheet" href="CSS/music.css">
+    <title></title>
+</head>
+<body>
+<div class="container">
+    <div class="transtion-my">
+
+
+        <p class="p1 p1-nai">
+        个人简历
+        </p>
+        <img src="images/icon_up.png" class="icon icon-ani">
+    </div>
+    <div class="transtion-my down">
+
+        <img src="images/JIS.jpg" class="ing1-nai"/>
+        <div class="hao hao-nai">
+        <p class="p2">姓名：任海琛</p>
+        <p class="p3">性别：男</p>
+        <p class="p4">学校：欧美学院</p>
+        <p class="p12">专业：web前端</p>
+        </div>
+    </div>
+    <div class="transtion-my down">
+        <p class="p5 p1-nai">座右铭</p>
+        <p class="p6 ing1-nai">没有遥不可及的目标</p>
+        <p class="p7 ing1-nai">没有实现不了的理想</p>
+    </div>
+    <div class="transtion-my down">
+        <p class="p8 p1-nai">业余爱好</p>
+        <p class="p9 hao-nai">滑板 </p>
+        <img src="images/45.jpg" class="ing2-nai"/>
+        <p class="p10 hao-nai">台球</p>
+        <img src="images/48.jpg" class="ing3-nai"/>
+        <p class="p10 hao-nai">听歌</p>
+            <img src="images/49.jpg" class="ing4-nai"/>
+    </div>
+    <div class="transtion-my down">
+        <p class="p13 p1-nai">课程</p>
+
+        <p class="p14 hao-nai2">css</p>
+
+        <p class="p15 hao-nai2">html</p>
+
+        <p class="p16 hao-nai2">swiper</p>
+
+        <p class="p17 hao-nai2">JavaScript</p>
+    </div>
+    <div class="transtion-my down">
+        <p class="foot1">谢谢观看</p>
+    </div>
+
+    <img src="images/music.png" class="music music-ani">
+    <audio src="video/Charlie.mp3" autoplay id="audio-my" loop></audio>
+
+</div>
+</body>
+<script src="js/zepto.js"></script>
+<script src="js/touch.js"></script>
+<script>
+    var i=0;
+    $(".container").swipeUp(function(){
+        if(i<5)
+        {
+            $(".container>div").eq(i).addClass("up");
+            $(".container>div").eq(i).children().addClass("yin");
+            i++;
+            $(".container>div").eq(i).removeClass("down");
+            $(".container>div").eq(i).children().removeClass("yin");
+        }
+    })
+    $(".container").swipeDown(function(){
+        if(i>0)
+        {
+            $(".container>div").eq(i).addClass("down");
+            $(".container>div").eq(i).children().addClass("yin");
+            i--;
+            $(".container>div").eq(i).removeClass("up");
+            $(".container>div").eq(i).children().removeClass("yin");
+        }
+    })
+    //    手指滑动结束
+    //    音乐事件
+    flag=0;
+    $(".container .music").tap(function(){
+//        方法一
+        if( document.querySelector("#audio-my").paused==true)
+        {
+            document.querySelector("#audio-my").play();
+            $(".music").addClass("music-ani");
+        }
+        else{
+            document.querySelector("#audio-my").pause();
+            $(".music").removeClass("music-ani");
+        }
+//        方法二
+//        if(flag==1)
+//        {
+//            document.querySelector("#audio-my").play();
+//            $(".music").addClass("music-ani");
+//            flag=0;
+//        }
+//        else{
+//            document.querySelector("#audio-my").pause();
+//            $(".music").removeClass("music-ani");
+//            flag=1;
+//        }
+    })
+</script>
+</html>
